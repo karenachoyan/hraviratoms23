@@ -23,7 +23,7 @@ const brokenHide =
   '[class*="photo-upload-btn"]{display:none!important;#rec2137672493 .tn-elem[data-elem-id="1775692551083000001"]{display:none!important;visibility:hidden!important;}visibility:hidden!important;pointer-events:none!important;}';
 
 const fixedHide =
-  '[class*="photo-upload-btn"]{display:none!important;visibility:hidden!important;pointer-events:none!important;}#rec2137672493 .tn-elem[data-elem-id="1775692551083000001"]{display:none!important;visibility:hidden!important;}';
+  '[class*="photo-upload-btn"]{display:none!important;visibility:hidden!important;pointer-events:none!important;}';
 
 const dataReplacements = [
   [
