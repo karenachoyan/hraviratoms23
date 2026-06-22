@@ -18,7 +18,7 @@ const footerCss = `
 @media screen and (max-width:480px){.invite-light-footer{padding:40px 16px 36px;}.invite-light-footer__names{font-size:20px;}}
 `.replace(/\n/g, "");
 
-const footerHtml = `<div id="invite-light-footer" class="invite-light-footer" data-invite="${marker}"><div class="invite-light-footer__inner"><p class="invite-light-footer__names">Արմեն &amp; Դիանա</p><p class="invite-light-footer__date">01 · 08 · 2026</p></div></div>`;
+const footerHtml = `<div id="invite-light-footer" class="invite-light-footer" data-invite="${marker}"><div class="invite-light-footer__inner"><p class="invite-light-footer__names">Արմեն &amp; Դիանա</p><p class="invite-light-footer__date">30․09․2026</p></div></div>`;
 
 for (const file of files) {
   let html = fs.readFileSync(file, "utf8");

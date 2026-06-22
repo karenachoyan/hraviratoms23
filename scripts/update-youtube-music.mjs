@@ -15,6 +15,7 @@ const block = `${marker}
 <script>
 (function () {
   var YT_VIDEO_ID = "${videoId}";
+  var YT_START_SECONDS = 40;
   var ytPlayer = null;
   var ytReady = false;
   var shouldPlay = false;
@@ -22,6 +23,7 @@ const block = `${marker}
   function playMusic() {
     if (ytPlayer && ytReady) {
       ytPlayer.setVolume(40);
+      ytPlayer.seekTo(YT_START_SECONDS, true);
       ytPlayer.playVideo();
     } else {
       shouldPlay = true;
@@ -42,6 +44,7 @@ const block = `${marker}
         autoplay: 0,
         loop: 1,
         playlist: YT_VIDEO_ID,
+        start: YT_START_SECONDS,
         controls: 0,
         disablekb: 1,
         fs: 0,
@@ -53,6 +56,12 @@ const block = `${marker}
         onReady: function () {
           ytReady = true;
           if (shouldPlay) playMusic();
+        },
+        onStateChange: function (event) {
+          if (event.data === YT.PlayerState.ENDED) {
+            ytPlayer.seekTo(YT_START_SECONDS, true);
+            ytPlayer.playVideo();
+          }
         },
       },
     });

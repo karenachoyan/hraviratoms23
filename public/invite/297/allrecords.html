@@ -36,6 +36,7 @@ alt='' imgfield='tn_img_1779400137682000002'
 <script>
 (function () {
   var YT_VIDEO_ID = "Gcxv7i02lXc";
+  var YT_START_SECONDS = 40;
   var ytPlayer = null;
   var ytReady = false;
   var shouldPlay = false;
@@ -43,6 +44,7 @@ alt='' imgfield='tn_img_1779400137682000002'
   function playMusic() {
     if (ytPlayer && ytReady) {
       ytPlayer.setVolume(40);
+      ytPlayer.seekTo(YT_START_SECONDS, true);
       ytPlayer.playVideo();
     } else {
       shouldPlay = true;
@@ -63,6 +65,7 @@ alt='' imgfield='tn_img_1779400137682000002'
         autoplay: 0,
         loop: 1,
         playlist: YT_VIDEO_ID,
+        start: YT_START_SECONDS,
         controls: 0,
         disablekb: 1,
         fs: 0,
@@ -74,6 +77,12 @@ alt='' imgfield='tn_img_1779400137682000002'
         onReady: function () {
           ytReady = true;
           if (shouldPlay) playMusic();
+        },
+        onStateChange: function (event) {
+          if (event.data === YT.PlayerState.ENDED) {
+            ytPlayer.seekTo(YT_START_SECONDS, true);
+            ytPlayer.playVideo();
+          }
         },
       },
     });
@@ -1275,4 +1284,4 @@ hidden style="padding-bottom:30px;padding-left:25px;padding-right:25px;"> <div c
   },
   "areaServed": "Worldwide"
 }
-</script> <!-- nominify end --> </div> </div> </div> </div> <div id="invite-light-footer" class="invite-light-footer" data-invite="invite-light-footer-v1"><div class="invite-light-footer__inner"><p class="invite-light-footer__names">Արմեն &amp; Դիանա</p><p class="invite-light-footer__date">01 · 08 · 2026</p></div></div></footer> <!--/footer--> </div>
+</script> <!-- nominify end --> </div> </div> </div> </div> <div id="invite-light-footer" class="invite-light-footer" data-invite="invite-light-footer-v1"><div class="invite-light-footer__inner"><p class="invite-light-footer__names">Արմեն &amp; Դիանա</p><p class="invite-light-footer__date">30․09․2026</p></div></div></footer> <!--/footer--> </div>
